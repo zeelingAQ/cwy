@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>吴宇QWQ 领导制作 - 术力口 Mod 专题页</title>
+    <style>
+        /* ================= 全局样式与配色 ================= */
+        :root {
+            --bg-color: #0d0d11;
+            --card-bg: #1a1a22;
+            --text-main: #ffffff;
+            --text-sub: #a0a0a0;
+            --accent: #00d2ff; /* 科技青蓝色 */
+            --accent-hover: #3a7bd5;
+        }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* ================= 顶部主视觉区 ================= */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: radial-gradient(circle at center, #0a2a3a 0%, var(--bg-color) 80%);
+            border-bottom: 2px solid var(--card-bg);
+        }
+        .hero .badge {
+            display: inline-block;
+            background-color: rgba(0, 210, 255, 0.1);
+            color: var(--accent);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            border: 1px solid var(--accent);
+            letter-spacing: 1px;
+        }
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+        }
+        .hero .subtitle {
+            color: var(--text-sub);
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+        .hero .subtitle strong {
+            color: var(--text-main);
+            font-size: 1.1em;
+        }
+
+        /* ================= 按钮通用样式 ================= */
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: var(--accent);
+            color: #000;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: 0.3s;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
+        }
+        .btn:hover {
+            background-color: var(--accent-hover);
+            color: #fff;
+            transform: scale(1.05);
+        }
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            box-shadow: none;
+        }
+        .btn-outline:hover {
+            background-color: var(--accent);
+            color: #000;
+        }
+
+        /* ================= 主体容器 ================= */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* ================= 介绍区 ================= */
+        .intro-box {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border-left: 5px solid var(--accent);
+        }
+        .intro-box h2 {
+            margin-top: 0;
+            color: var(--accent);
+        }
+        .intro-box p {
+            color: var(--text-sub);
+            font-size: 1.05em;
+            margin-bottom: 15px;
+        }
+        .intro-box .highlight {
+            color: var(--text-main);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .features {
+            margin-top: 30px;
+            background: rgba(255,255,255,0.03);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .features ul {
+            color: var(--text-sub);
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+        .features li {
+            margin-bottom: 10px;
+        }
+
+        /* ================= 实机截图画廊 ================= */
+        .gallery-section {
+            margin: 50px 0;
+        }
+        .gallery-section h2 {
+            text-align: center; 
+            color: var(--accent); 
+            margin-bottom: 30px;
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 电脑端一排3个 */
+            gap: 15px;
+        }
+        .image-grid a {
+            display: block;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid var(--card-bg);
+            transition: 0.3s;
+            aspect-ratio: 16 / 9;
+        }
+        .image-grid a:hover {
+            border-color: var(--accent);
+            transform: scale(1.03);
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+            z-index: 2;
+        }
+        .image-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ================= 下载区 ================= */
+        .download-section {
+            text-align: center; 
+            margin: 60px 0;
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid #333;
+        }
+        .download-section h2 {
+            font-size: 2em; 
+            margin-bottom: 10px;
+        }
+        .download-section p {
+            color: var(--text-sub); 
+            margin-bottom: 30px;
+        }
+
+        /* ================= 腾讯频道加入区 ================= */
+        .join-section {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 40px;
+            border-left: 5px solid var(--accent);
+        }
+        .join-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .join-text {
+            flex: 1;
+        }
+        .join-text h2 {
+            color: var(--accent);
+            margin-top: 0;
+        }
+        .join-text p {
+            color: var(--text-sub);
+            margin-bottom: 15px;
+        }
+        .channel-id span {
+            color: var(--text-main);
+            font-weight: bold;
+            background: rgba(255,255,255,0.1);
+            padding: 2px 8px;
+            border-radius: 5px;
+            user-select: all;
+        }
+        .join-qr {
+            text-align: center;
+            flex-shrink: 0;
+        }
+        /* 二维码尺寸放大到 250px */
+        .join-qr img {
+            width: 250px; 
+            height: 250px;
+            border-radius: 10px;
+            border: 2px solid #333;
+            object-fit: contain;
+        }
+        .join-qr p {
+            font-size: 0.85em;
+            color: #888;
+            margin-top: 10px;
+        }
+
+        /* ================= 赞助区（占位） ================= */
+        .sponsor-box {
+            text-align: center;
+            background-color: var(--card-bg);
+            padding: 50px 20px;
+            border-radius: 15px;
+            border: 1px dashed #555;
+            margin-top: 40px;
+        }
+        .sponsor-box h2 {
+            color: var(--text-main);
+            margin-top: 0;
+        }
+        .sponsor-box p {
+            color: var(--text-sub);
+            margin-bottom: 30px;
+        }
+        .coming-soon {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: rgba(255,255,255,0.05);
+            color: #888;
+            border-radius: 20px;
+            font-size: 0.95em;
+            border: 1px solid #444;
+            cursor: not-allowed;
+        }
+
+        /* ================= 页脚 ================= */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #555;
+            font-size: 0.85em;
+            margin-top: 40px;
+            border-top: 1px solid #222;
+        }
+
+        /* ================= 手机端适配 ================= */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5em; }
+            .join-content { flex-direction: column; text-align: center; gap: 20px; }
+            .image-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .channel-id { margin-bottom: 20px; }
+            /* 手机端稍微缩小一点，防止撑破屏幕，但依然很大 */
+            .join-qr img { width: 220px; height: 220px; } 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. 顶部海报区 -->
+    <div class="hero">
+        <div class="badge">独立制作项目 · 双端引擎</div>
+        <h1>术力口 Mod 企划</h1>
+        <div class="subtitle">
+            本游戏由 B站 <strong>@吴宇QWQ</strong> 领导制作
+        </div>
+        <!-- ⚠️ 注意：把这里的 href="https://space.bilibili.com/" 换成吴宇真实的B站空间链接 -->
+        <a href="#download" class="btn">立即下载</a>
+        <a href="https://space.bilibili.com/" target="_blank" class="btn btn-outline" style="margin-left: 10px;">前往B站主页</a>
+    </div>
+
+    <!-- 主体内容 -->
+    <div class="container">
+        
+        <!-- 2. 模组详细介绍区 -->
+        <div class="intro-box">
+            <h2>📖 关于本企划</h2>
+            <p class="highlight">本作由 B站 UP主 @吴宇QWQ 亲自领导并主导开发，涵盖底层引擎的全平台定制。</p>
+            <p>为了让所有玩家都能获得最佳体验，主创以 <strong>Psych Engine 1.0.4</strong> 为核心基底，不仅重写了移动端的触控逻辑，还保留了 PC 端原汁原味的精准键盘操作，打造了专属的跨平台 <strong>QsychEngine</strong>。</p>
+            
+            <div class="features">
+                <p><strong>✨ 核心亮点：</strong></p>
+                <ul>
+                    <li>💻 <strong>PC端极致体验</strong>：完美适配 Windows 等桌面端，支持高帧率运行与精准键盘判定。</li>
+                    <li>📱 <strong>移动端深度魔改</strong>：针对安卓触控特性进行底层专项优化，提供多种自定义按键模式，手感丝滑。</li>
+                    <li>🎵 <strong>高品质术力口曲库</strong>：收录由吴宇QWQ精心挑选与调校的 V家 经典二创曲目（含重音 Teto 等）。</li>
+                    <li>🛠️ <strong>独立双端发行</strong>：拥有独立包名与构建版本，安装即玩，不依赖其他公共引擎。</li>
+                </ul>
+                <p style="margin-top: 15px; font-size: 0.9em; color: #ff5555;">
+                    ⚠️ 运行要求：PC端支持 Windows 系统；移动端需 Android 5.2 或更高版本。
+                </p>
+            </div>
+        </div>
+
+        <!-- 3. 实机截图画廊 -->
+        <div class="gallery-section">
+            <h2>📸 实机画面预览</h2>
+            <div class="image-grid">
+                <a href="images/1.jpg" target="_blank"><img src="images/1.jpg" alt="实机截图1"></a>
+                <a href="images/2.jpg" target="_blank"><img src="images/2.jpg" alt="实机截图2"></a>
+                <a href="images/3.jpg" target="_blank"><img src="images/3.jpg" alt="实机截图3"></a>
+                <a href="images/4.jpg" target="_blank"><img src="images/4.jpg" alt="实机截图4"></a>
+                <a href="images/5.jpg" target="_blank"><img src="images/5.jpg" alt="实机截图5"></a>
+                <a href="images/6.jpg" target="_blank"><img src="images/6.jpg" alt="实机截图6"></a>
+                <a href="images/7.jpg" target="_blank"><img src="images/7.jpg" alt="实机截图7"></a>
+                <a href="images/8.jpg" target="_blank"><img src="images/8.jpg" alt="实机截图8"></a>
+                <a href="images/9.jpg" target="_blank"><img src="images/9.jpg" alt="实机截图9"></a>
+            </div>
+        </div>
+
+        <!-- 4. 下载区 -->
+        <div class="download-section" id="download">
+            <h2>📥 双端官方下载</h2>
+            <p>点击下方按钮前往 123云盘 获取作品。<br><span style="color:var(--accent); font-size: 0.9em;">（网盘内包含 PC电脑版 与 安卓手机版，请按需下载）</span></p>
+            
+            <a href="https://1814836114.share.123pan.cn/123pan/4bicVv-p6Ulv" target="_blank" class="btn">
+                点我前往下载双端安装包
+            </a>
+        </div>
+
+        <!-- 5. 加入我们（腾讯频道） -->
+        <div class="join-section">
+            <div class="join-content">
+                <div class="join-text">
+                    <h2>💬 加入官方交流频道</h2>
+                    <p>遇到 Bug 不会解决？想找大佬联机？或者想催更主创？<br>欢迎加入 <strong>吴宇QWQ的频道</strong>！</p>
+                    <p class="channel-id">频道号：<span>pd92981638</span></p>
+                    <a href="https://pd.qq.com/s/pd92981638" target="_blank" class="btn" style="padding: 12px 30px; font-size: 1em;">一键加入频道</a>
+                </div>
+                <div class="join-qr">
+                    <!-- 尺寸已在 CSS 中全局放大，并加宽了白色内边距方便对焦 -->
+                    <img src="qq_channel.jpg" alt="腾讯频道二维码" style="background-color: #fff; padding: 12px;">
+                    <p>扫码加入</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. 赞助区（占位版） -->
+        <div class="sponsor-box">
+            <h2>❤️ 赞助主创</h2>
+            <p>独立开发不易，制作模组纯属用爱发电。<br>赞助通道正在筹备中，敬请期待！</p>
+            
+            <!-- 等他有了爱发电链接或赞赏码，把下面的 div 换成 <a> 标签即可 -->
+            <div class="coming-soon">
+                赞助通道筹备中，敬请期待
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        © 2026 <strong>吴宇QWQ</strong>. All Rights Reserved.<br>
+        本模组基于 Psych Engine 深度定制，游戏本体版权归原 FNF 开发者所有。
+    </footer>
+
+</body>
+</html>
